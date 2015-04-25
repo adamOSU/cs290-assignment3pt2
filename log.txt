@@ -1,0 +1,13 @@
+Start: Thur, 23 Apr 2015 15:30:00 -0800
+End: Thur, 23 Apr 2015 22:38:00 -0800
+Tasks: I built a basic HTML page and JS file.  Watched the videos.  Read through the comments on the board.  Tried to do a 'hello world' approach to build a very simple AJAX
+request that grabbed text from a local file.  Once I got that to work, I had the AJAX call return the data from the git gists link.  Once that worked, I then built the JSON parsing
+section and I now can successfully print a single gist on the HTML page.
+
+Start: Fri, 24 Apr 2015 13:15:00 -0800
+End: Fri, 24 Apr 2015 15:45:00 -0800
+Tasks:  Added the ability to add multiple search results on the page and wrote the html needed so the display in a list with a checkbox next to them.
+
+Start: Fri, 24 Apr 2015 20:05:00 -0800
+End: Fri, 24 Apr 2015 22:16:00 -0800
+Tasks:  Added functionality so that when a checkbox is clicked, that item is added to the favorites list.  Then the entire favorites list is updated and displayed on the page.
