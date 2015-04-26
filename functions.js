@@ -1,11 +1,10 @@
-
-
 var favList = [];
 var xmlhttp;
 var x;
 var y;
 var temp = "";
 var obj;
+var bool = false;
 
 window.onload = function()
 {
@@ -24,7 +23,7 @@ function coolStuff(url)
   loadXMLDoc(url);
 }
 
-function loadXMLDoc(url) //I borrowed the bulk of this code from the w3schools website to help me get the xmlhttp object set up correctly
+function loadXMLDoc(url) //I borrowed the bulk of the XMLHttpRequest code from the w3schools website to help me get the xmlhttp object set up correctly
 {
 
 if (window.XMLHttpRequest)
@@ -56,10 +55,8 @@ function favTog(stat,num)
 {
 
   var tempList = [];
-  var temp2 = "";
-  var bool = false;
-  var temp3 = "";
-
+  
+  
   document.getElementById('favs').innerHTML = "";
   //This section adds an item to the favorite list if checked, and removes it if unchecked
   if (stat == true)
@@ -95,8 +92,6 @@ function favRemove(stat,num)
 {
 
   var tempList2 = [];
-  var temp4 = "";
-  var temp5 = "";
 
   //This loop removes the checked fav item from the fav list
   for (x = 0; x < favList.length; x++)
@@ -161,7 +156,7 @@ function printFavorites()
   tempHTML = '<ul style="list-style-type:none">' + tempHTML + '</ul>';
   document.getElementById('favs').innerHTML = "";
   document.getElementById('favs').innerHTML = tempHTML;
-  //localStorage.setItem("favorites", favList);
+
   localStorage["favorites"] = JSON.stringify(favList);
 }
 

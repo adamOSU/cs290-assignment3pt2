@@ -1,87 +1,10 @@
-body {
-	margin:0;
-	padding:0;
+table {
+  width: 100%;
 }
 
-#container2 {
-  clear: left;
-  float: left;
-  width: 50%;
-  overflow: hidden;
-  background: #ffa7a7;
+th, td {
+  width: 25%;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid #000;
 }
-
-#container1 {
-  float: left;
-  width: 50%;
-  position: relative;
-  right: 50%;
-  background: #fff689;
-}
-#results {
-  float: left;
-  width: 46%;
-  position: relative;
-  left: 52%;
-  overflow: hidden;
-}
-
-#favs {
-  float: left;
-  width: 46%;
-  position: relative;
-  left: 56%;
-  overflow: hidden;
-}
-
-
-/*
-table, th, td {
-	border: 1px solid black;
-}
-
-tbody tr:nth-child(odd) {
-	background: lightgreen;
-}
-
-tbody tr:nth-child(even) {
-	background: lightblue;
-}
-
-tbody th {
-	font-weight: normal;
-	font-style: italic;
-}
-
-tbody td:nth-child(2) {
-	color: red;
-}
-
-tbody td:nth-child(4) {
-	color: blue;
-}
-
-dt:hover + dd {
-	background-color: purple;
-}
-
-.outer-content {
-	margin: left;
-	width: 75%;
-	margin-top: 20px;
-	background: pink;
-}
-
-.inner-content {
-	margin-left: auto;
-	margin-right: auto;
-	width: 75%;
-	background: lightblue;
-	text-align: center;
-}
-
-img {
-	float: left;
-}
-
-*/
