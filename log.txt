@@ -11,3 +11,8 @@ Tasks:  Added the ability to add multiple search results on the page and wrote t
 Start: Fri, 24 Apr 2015 20:05:00 -0800
 End: Fri, 24 Apr 2015 22:16:00 -0800
 Tasks:  Added functionality so that when a checkbox is clicked, that item is added to the favorites list.  Then the entire favorites list is updated and displayed on the page.
+
+Start: Sat, 25 Apr 2015 20:16:00 -0800
+End: Sat, 25 Apr 2015 22:16:00 -0800
+Tasks:  Made it so when the checkbox is clicked the item is added to the favorites list and removed from the results list.  Additionally, I made it so if the checkbox is clicked on a favorites item, it is removed from favorites
+and added back into the normal results.  I also added CSS so the results and favorites are in side by side columns.
