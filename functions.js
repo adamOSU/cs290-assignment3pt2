@@ -9,7 +9,12 @@ var obj;
 
 window.onload = function()
 {
-  document.getElementById('favs').innerHTML = localStorage.getItem("favorites");
+  if ((localStorage.getItem("favorites") != null) && (localStorage.getItem("favorites") != '<ul style="list-style-type:none"></ul>'))
+  {
+   favList = JSON.parse(localStorage["favorites"]);    //I learned this JSON Stringify/Parse trick from a post on StackOverflow
+   //alert(favList[0]);
+   printFavorites();
+  }
 }
 
 
@@ -37,14 +42,7 @@ xmlhttp.onreadystatechange=function()
     {
       obj = JSON.parse(xmlhttp.responseText);
 
-      for (x = 0; x < obj.length; x++)
-      {
-        
-        temp = temp + '<li>' + '<input type="checkbox" name="rList" value="' + obj[x].id + '" onclick="favTog(this.checked, this.value)">' + obj[x].description + '<br>' + '<a href="' + obj[x].html_url + '">' + obj[x].html_url + '</a>' + '</li>';
-        
-      }
-      temp = '<ul style="list-style-type:none">' + temp + '</ul>';
-     document.getElementById('result').innerHTML = temp;
+      printResults();
     }
  }
 
@@ -86,39 +84,9 @@ function favTog(stat,num)
     }
     favList = tempList;
   }
-  //This section prints the completed fav list
-  for (x = 0; x < favList.length; x++)
-  {
-    temp2 = temp2 + '<li>' + '<input type="checkbox" name="fList" value="' + favList[x].id + '" onclick="favRemove(this.checked, this.value)">' + favList[x].description + '<br>' + '<a href="' + favList[x].html_url + '">' + favList[x].html_url + '</a>' + '</li>';
-  }
- 
-  temp2 = '<ul style="list-style-type:none">' + temp2 + '</ul>';
-  document.getElementById('favs').innerHTML = "";
-  document.getElementById('favs').innerHTML = temp2;
-  localStorage.setItem("favorites", temp2);
 
-  //This section reprints the results list so that it does not include the favlist items
-  for (x = 0; x < obj.length; x++)
-  {
-    bool = false;
-    for (y=0; y < favList.length; y++)
-    {
-      if (obj[x].id == favList[y].id)
-      {
-        bool = true;
-      }
-
-    }
-
-    if (bool == false)
-    {
-     temp3 = temp3 + '<li>' + '<input type="checkbox" name="rList" value="' + obj[x].id + '" onclick="favTog(this.checked, this.value)">' + obj[x].description + '<br>' + '<a href="' + obj[x].html_url + '">' + obj[x].html_url + '</a>' + '</li>';
-    }
-  }
-  
-  temp3 = '<ul style="list-style-type:none">' + temp3 + '</ul>';
-  document.getElementById('result').innerHTML = "";
-  document.getElementById('result').innerHTML = temp3;
+  printFavorites();
+  printResults();
 
 
 }
@@ -140,17 +108,15 @@ function favRemove(stat,num)
   }
   favList = tempList2;
 
-  //This section prints the updated fav list
-  for (x = 0; x < favList.length; x++)
-  {
-    temp4 = temp4 + '<li>' + '<input type="checkbox" name="fList" value="' + favList[x].id + '" onclick="favRemove(this.checked, this.value)">' + favList[x].description + '<br>' + '<a href="' + favList[x].html_url + '">' + favList[x].html_url + '</a>' + '</li>';
-  }
- 
-  temp4 = '<ul style="list-style-type:none">' + temp4 + '</ul>';
-  document.getElementById('favs').innerHTML = "";
-  document.getElementById('favs').innerHTML = temp4;
-  localStorage.setItem("favorites", temp4);
 
+  printFavorites();
+  printResults();
+
+}
+
+function printResults()
+{
+  var tempHTML = "";
   //This section reprints the results list so that it does not include the favlist items
   for (x = 0; x < obj.length; x++)
   {
@@ -166,34 +132,37 @@ function favRemove(stat,num)
 
     if (bool == false)
     {
-     temp5 = temp5 + '<li>' + '<input type="checkbox" name="rList" value="' + obj[x].id + '" onclick="favTog(this.checked, this.value)">' + obj[x].description + '<br>' + '<a href="' + obj[x].html_url + '">' + obj[x].html_url + '</a>' + '</li>';
+      if (obj[x].description == "")
+      {
+        obj[x].description = "NO DESCRIPTION";
+      }
+     tempHTML = tempHTML+ '<li>' + '<input type="checkbox" name="rList" value="' + obj[x].id + '" onclick="favTog(this.checked, this.value)">' + '<a href="' + obj[x].html_url + '">' + obj[x].description + '</a>' + '<br>' + '</li>';
     }
   }
   
-  temp5 = '<ul style="list-style-type:none">' + temp5 + '</ul>';
+  tempHTML = '<ul style="list-style-type:none">' + tempHTML + '</ul>';
   document.getElementById('result').innerHTML = "";
-  document.getElementById('result').innerHTML = temp5;
+  document.getElementById('result').innerHTML = tempHTML;
 
 }
 
-/*
-if (!xmlhttp)
-  alert("Some kind of failure!");
-else
-    return xmlhttp;
 
-xmlhttp.onreadystatechange=function()
-  {
+function printFavorites()
+{
   
-if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-    document.getElementById('result').innerHTML=xmlhttp.responseText;
-    }
+  var tempHTML = "";
 
-      xmlhttp.open("GET",url,true);
-  xmlhttp.send();
+  //This section prints the updated fav list
+  for (x = 0; x < favList.length; x++)
+  {
+    tempHTML = tempHTML + '<li>' + '<input type="checkbox" name="fList" value="' + favList[x].id + '" onclick="favRemove(this.checked, this.value)">' + favList[x].description + '<br>' + '<a href="' + favList[x].html_url + '">' + favList[x].html_url + '</a>' + '</li>';
+  }
+ 
+  tempHTML = '<ul style="list-style-type:none">' + tempHTML + '</ul>';
+  document.getElementById('favs').innerHTML = "";
+  document.getElementById('favs').innerHTML = tempHTML;
+  //localStorage.setItem("favorites", favList);
+  localStorage["favorites"] = JSON.stringify(favList);
 }
-*/
-
 
 

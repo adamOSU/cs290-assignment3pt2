@@ -1,36 +1,37 @@
-
-
 body {
-    background-color: solid white;
-    margin: 0;
-}    
-
-#cols {
-     width: 1005px;
-     margin: 0 auto;
-   
+	margin:0;
+	padding:0;
 }
 
-#cols2 {
-     width: 1005px;
-     margin: 0 auto;
-
+#container2 {
+  clear: left;
+  float: left;
+  width: 50%;
+  overflow: hidden;
+  background: #ffa7a7;
 }
 
-#result, #favs {
-	border: 20px solid white;
-    float: left;
-    color: black;
+#container1 {
+  float: left;
+  width: 50%;
+  position: relative;
+  right: 50%;
+  background: #fff689;
 }
-
-#result {
-	 width: 500px;
-     background-color: lightblue;
+#results {
+  float: left;
+  width: 46%;
+  position: relative;
+  left: 52%;
+  overflow: hidden;
 }
 
 #favs {
-	 width: 500px;
-     background-color: lightblue;
+  float: left;
+  width: 46%;
+  position: relative;
+  left: 56%;
+  overflow: hidden;
 }
 
 
