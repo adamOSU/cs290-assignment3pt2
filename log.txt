@@ -15,3 +15,7 @@ Tasks:  Added functionality so that when a checkbox is clicked, that item is add
 Start: Sat, 25 Apr 2015 20:16:00 -0800
 End: Sat, 25 Apr 2015 23:59:00 -0800
 Tasks:  Made it so when the checkbox is clicked the item is added to the favorites list and removed from the results list.  Additionally, I made it so if the checkbox is clicked on a favorites item, it is removed from favorites and added back into the normal results.  I also added CSS so the results and favorites are in side by side columns.  Then I added local storage functionality so favorites are saved when someone navigates away from the page.  When they come to a page and the favorites are loaded and they click Get Gists, favorite items do not show up in the list.
+
+Start: Sun, 26 Apr 2015 17:00:00 -0800
+End: Sun, 26 Apr 2015 18:00:00 -0800
+Tasks: Cleaned up CSS to make results look nicer. Cleaned up visual look of code and deleted unnecessary comments/code.
